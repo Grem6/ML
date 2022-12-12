@@ -1,0 +1,218 @@
+data details : 
+ Index(['tweet', 'label'], dtype='object')
+
+
+Data info : 
+                                                     tweet  label
+count                                               30000  30000 
+unique                                              29987      3 
+top     Copper price and coronavirus: ‚ÄúBlack swan li...    neu 
+freq                                                    3  22949 
+
+
+Column details : 
+ neu    22949    
+neg     5083     
+pos     1968
+Name: label, dtype: int64
+
+
+Unique columns :
+ ['neu' 'neg' 'pos']
+
+
+Cleaned data :                                                tweet label
+0            coronavirus human coronavirus types cdc   neu
+1  that true corona virus swine flue bird flu dec...   neu
+2  tldr not sars possibly new coronavirus difficu...   neg
+3  disease outbreak news from the who middle east...   neu
+4  china media wsj says sources tell them mystery...   neu
+
+
+Cleaned sample : 
+
+tldr not sars possibly new coronavirus difficult confirm because patients identified later infection when   
+
+
+0             [coronavirus, human, coronavirus, type, cdc]
+1        [that, true, corona, virus, swine, flue, bird,...
+2        [tldr, not, sars, possibly, new, coronavirus, ...
+3        [disease, outbreak, news, from, the, who, midd...
+4        [china, medium, wsj, say, source, tell, them, ...
+                               ...
+29995    [cdc, test, confirms, westerdam, cruise, ship,...
+29996    [two, doctor, die, coronavirus, within, hour, ...
+29997    [beijing, the, lockdown, guo, jing, neighbourh...
+29998    [coronavirusoutbreak, balochistan, cpec, route...
+29999    [the, australian, dollar, ha, hit, fresh, deca...
+Name: tweet, Length: 30000, dtype: object
+
+
+
+0                   coronavirus human coronavirus type cdc
+1        that true corona virus swine flue bird flu dec...
+2        tldr not sars possibly new coronavirus difficu...
+3        disease outbreak news from the who middle east...
+4        china medium wsj say source tell them mystery ...
+                               ...
+29995    cdc test confirms westerdam cruise ship passen...
+29996    two doctor die coronavirus within hour china h...
+29997    beijing the lockdown guo jing neighbourhood wu...
+29998    coronavirusoutbreak balochistan cpec route spr...
+29999    the australian dollar ha hit fresh decade low ...
+Name: tweets, Length: 30000, dtype: object
+
+
+Tokenized data :   
+
+
+    label                                tweets
+0   neu             coronavirus human coronavirus type cdc
+1   neu  that true corona virus swine flue bird flu dec...
+2   neg  tldr not sars possibly new coronavirus difficu...
+3   neu  disease outbreak news from the who middle east...
+4   neu  china medium wsj say source tell them mystery ...
+
+
+  (0, 4465)     0.2805594414884342
+  (0, 3399)     0.2808103317848311
+  (0, 3069)     0.19100889083137182
+  (0, 2612)     0.21642516524984898
+  (0, 2270)     0.4194895996835885
+  (0, 1252)     0.24644962381765453
+  (0, 1197)     0.35696396378595346
+  (0, 931)      0.05333989059495485
+  (0, 833)      0.39020978637727866
+  (0, 576)      0.35696396378595346
+  (0, 94)       0.3353258166397761
+  (1, 4943)     0.23037479274915015
+  (1, 4448)     0.4323055073907544
+  (1, 4366)     0.35489761261986275
+  (1, 4300)     0.3641297307417538
+  (1, 1763)     0.19555825978139382
+  (1, 1543)     0.5709459975846185
+  (1, 931)      0.07064960754668738
+  (1, 609)      0.20481667168016204
+  (1, 155)      0.3005545303614729
+  (2, 3901)     0.3800801282013848
+  (2, 3178)     0.26412632934211183
+  (2, 1642)     0.45250565655048175
+  (2, 1087)     0.6293573106658495
+  (2, 1081)     0.36959651515514774
+  :     :
+  (20997, 931)  0.06282889516253137
+  (20997, 625)  0.3328806586593153
+  (20997, 544)  0.24402455478892415
+  (20998, 4537) 0.37638596777907185
+  (20998, 4524) 0.30169038187715563
+  (20998, 4106) 0.4763718738796278
+  (20998, 3254) 0.4748282122431428
+  (20998, 3086) 0.3386657709617461
+  (20998, 2297) 0.3197386195410796
+  (20998, 1094) 0.25247813350217935
+  (20998, 931)  0.07242997422010408
+  (20998, 705)  0.17031125936590916
+  (20999, 4857) 0.18343533246217752
+  (20999, 4836) 0.27285955191081324
+  (20999, 4458) 0.17250334359536196
+  (20999, 4456) 0.16592676993167352
+  (20999, 3075) 0.20319773628964874
+  (20999, 2735) 0.25054958546742806
+  (20999, 1993) 0.25071041940578254
+  (20999, 1818) 0.1525627954007384
+  (20999, 1302) 0.34365556013178145
+  (20999, 1211) 0.2641780985815332
+  (20999, 931)  0.050964504452202644
+  (20999, 267)  0.4008084630895192
+  (20999, 136)  0.5415537783783345
+
+
+  (0, 4458)     0.4689189642364792
+  (0, 2552)     0.5853751426088017
+  (0, 1061)     0.6614007464428148
+  (1, 4640)     0.4127276406449228
+  (1, 4458)     0.17536634998940479
+  (1, 4152)     0.25155744701163296
+  (1, 4148)     0.4255922347361786
+  (1, 3078)     0.20098293093346484
+  (1, 2680)     0.30023130040852636
+  (1, 2672)     0.39101665627619536
+  (1, 2612)     0.21021910776178046
+  (1, 2515)     0.25217003322767734
+  (1, 2399)     0.26617997290553896
+  (1, 2372)     0.2679001116852427
+  (1, 931)      0.05181035299678589
+  (1, 158)      0.134079384494745
+  (2, 4916)     0.48051204891961546
+  (2, 4844)     0.3316011429520722
+  (2, 4004)     0.41404771667478835
+  (2, 2159)     0.3292667091421072
+  (2, 1582)     0.6095907995834868
+  (2, 931)      0.08772589393240023
+  (3, 4750)     0.10386843443844462
+  (3, 4592)     0.3238587125008307
+  (3, 4417)     0.23133131126700493
+  :     :
+  (8997, 2129)  0.27350449138677596
+  (8997, 931)   0.057062525104909126
+  (8997, 756)   0.43065519678243064
+  (8997, 223)   0.33218219922379705
+  (8997, 83)    0.27722639287023443
+  (8998, 4844)  0.1870520048046716
+  (8998, 4472)  0.20078431722180778
+  (8998, 3602)  0.3391984259011266
+  (8998, 3327)  0.4142784940378633
+  (8998, 1818)  0.14813407938487544
+  (8998, 1394)  0.3040745614907524
+  (8998, 1301)  0.3349939408284676
+  (8998, 919)   0.27925812853139265
+  (8998, 615)   0.3349939408284676
+  (8998, 560)   0.30343227701150755
+  (8998, 356)   0.22493180485026038
+  (8998, 155)   0.21051724400322122
+  (8998, 120)   0.18493231614977512
+  (8999, 4861)  0.33163919183391577
+  (8999, 4487)  0.3842291458101064
+  (8999, 4479)  0.24005864025788112
+  (8999, 4264)  0.36441694216794035
+  (8999, 1878)  0.6241114596911719
+  (8999, 931)   0.07454935993330089
+  (8999, 210)   0.39608437265812224
+
+
+New data : 
+
+                         tweets                label
+6015                    the latest the carlos gala daily   neu
+28660  ugh sounding lot like the coronavirus the loos...   neu
+12498  what coronavirus explained urdu how worried sh...   neu
+22957  million sub team tree million sub corona virus...   neu
+14848  bbc news coronavirus and oil why crude ha been...   neg
+...                                                  ...   ...
+10574         russia confirms first two coronavirus case   neu
+7563   notice how these people are only saying americ...   neu
+25759  hundred hong kong protest against plan open co...   neu
+11978  coronaoutbreak because they eat dog cat squirr...   neu
+16522    this why coronavirus genuine threat apple stock   neu
+
+[9000 rows x 2 columns]
+
+
+New unique value : neu    7245
+neg    1328
+pos     427
+Name: label, dtype: int64
+
+
+Model accuracy = 89.83333333333333
+
+
+Classification Report :               precision    recall  f1-score   support
+
+         neg       0.88      0.75      0.81      1551
+         neu       0.91      0.96      0.94      6835
+         pos       0.78      0.55      0.64       614
+
+    accuracy                           0.90      9000
+   macro avg       0.86      0.75      0.80      9000
+weighted avg       0.89      0.90      0.89      9000
