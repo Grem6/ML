@@ -17,19 +17,29 @@ import time
 warnings.filterwarnings('ignore')
 # from csv import reader, writer ## for writing output data
 
-df=pd.read_csv(r'C:\Users\unnik\Downloads\assignment\COVIDSenti-A.csv')
+df=pd.read_csv(r'C:\Users\unnik\Downloads\assignment\COVIDSenti-A.csv') 
+# df=pd.read_csv(r'/COVIDSenti-A.csv') ## change to relative path to re-run the code (repo)
 
 ## doing the necessary preprocessing steps
 
 
 def data_details():
+    """
+    Generates dataset details.
+    
+    Outputs: [dataset.columns, dataset.all().isnull(), dataset.describe(), null_checker.sum]
+    
+    Parameters: None
+    
+    """
     
     print(f'data details : \n {df.columns}')
     print('\n') 
 
     null_checker = df.all().isnull()
     
-    if not (null_checker['tweet'] & null_checker['label']):
+    if not (null_checker['tweet'] & null_checker['label']): 
+        ##checks for null values in dataset, skips if none
         print(f'Data info : \n {df.describe()}')
     else:
         print(f'{null_checker.sum()}')
@@ -42,11 +52,24 @@ def data_details():
     print('\n')
     
 data_details()    
-def pattern_matcher(user_text, pattern):
+def pattern_matcher(user_text, pattern): 
+    ## function to match patterns in data to remove.
+    """
+    Pattern Matcher with re library.
+
+    Args:
+        user_text (string): receives the pandas series as a string input.
+        pattern (string): user defined pattern to match
+
+    Returns:
+        string : user_text
+    """
     r = re.findall(pattern, user_text)
     for i in r:
         user_text = re.sub(i,'',user_text)
     return user_text
+
+## data vectorizing steps to match and remove necessary strings from datastet.
 
 df['tweet'] = np.vectorize(pattern_matcher)((df['tweet']), '@[\w]*')
 df['tweet'] = df['tweet'].apply(lambda x: re.split('https:\/\/.*', str(x))[0])
@@ -61,6 +84,7 @@ sample = df[df['label']=='neg'].loc[2,'tweet']
 print(f'Cleaned sample : {sample}')
 
 
+## tokenized data
 
 tokenized_output = df['tweet'].apply(lambda x: x.split())
 lemmatizer = WordNetLemmatizer()
@@ -95,6 +119,7 @@ print("\n")
 print(X_test_vectorized)
 print("\n")
 
+##fitting the svm model to the vectorized data
 
 model = SVC(probability = True, kernel = 'linear')
 model.fit(X_train_vectorized, y_train )
@@ -106,13 +131,19 @@ Predicted_data['label'] = predictions
 print(f'New data : {Predicted_data}')
 print("\n")
 
+## unique values in the predicted data
+
 unique  = Predicted_data['label'].value_counts()
 print(f'New unique value : {unique}')
 print("\n")
 
+## final accuracy of the model
+
 accuracy = accuracy_score(predictions, y_test)*100
 print(f'Model accuracy = {accuracy}')
 print("\n")
+
+## classification report generated
 
 final_result  = classification_report(y_test, predictions)
 print(f'Classification Report : {classification_report(y_test, predictions)}') 
