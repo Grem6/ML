@@ -1,1 +1,1 @@
-## Repo for uni assignments and other work/projects
+## Repo for uni assignments and other course work/projects
